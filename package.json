@@ -1,0 +1,26 @@
+{
+  "name": "personal-task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Task manager with AI integration",
+  "main": "index.js",
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend",
+    "packages/shared"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JGH09/personal-task-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JGH09/personal-task-manager/issues"
+  },
+  "homepage": "https://github.com/JGH09/personal-task-manager#readme"
+}
