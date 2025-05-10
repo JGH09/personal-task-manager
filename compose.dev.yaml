@@ -1,0 +1,41 @@
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: ./apps/frontend/dev.Dockerfile
+
+    environment:
+      ENV_VARIABLE: ${ENV_VARIABLE}
+      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: always
+    working_dir: /app/apps/frontend
+    ports:
+      - 3000:3000
+    command: npm run dev --workspace=frontend
+  
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: ./apps/backend/dev.Dockerfile
+
+    environment:
+      ENV_VARIABLE: ${ENV_VARIABLE}
+    
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: always
+    working_dir: /app/apps/backend
+    ports:
+      - 4000:4000
+    
+    command: npm run start:dev --workspace=backend
+    
